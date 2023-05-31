@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Event Details</title>
+  </head>
+  <body style="background-color:white">
+
+    {% include 'std/navbar.html' %}
+    <h1 class="text-center my-4">Event Details</h1>
+    <div class="container">
+        <div class="col-md-7 offset-md-3">
+            <div class="card bg-info">
+                <div class="card-body" style="background-color:#17A2B8;">
+                    <table class="table table-dark">
+                    <form action="/std/evt-detail/" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       
+                        <h2><span style="color: white; font-weight: 800;">{{ std.name }}</span></h2>
+                        <tr>
+                        <td><p><span style="color:white;  font-weight: 700">Email ID: {{ std.email }}</span></p></td>
+                        </tr>
+                        <tr>
+                        <td><p><span style="color:white; font-weight: 700">Phone Number: {{ std.phone }}</span></p></td>
+                        </tr>
+                        <tr>
+                        <td><p><span style="color:white; font-weight: 700">Event Type: {{ std.type }}</span></p></td>
+                        </tr>
+                        <tr>
+                        <td><p><span style="color:white; font-weight: 700">Event Date and Start Time: {{ std.date }}</span></p></td>
+                        </tr>
+                        <td><p><span style="color:white; font-weight: 700">Event Location: {{ std.location }}</span></p></td>
+                        </tr>
+                        <tr>
+                        <td><p><span style="color:white; font-weight: 700">Event Description: {{ std.description }}</span></p></td>
+                        </tr>
+                    </form>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>

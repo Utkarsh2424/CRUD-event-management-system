@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <h5>
+      <a class="navbar-brand" href="/std/home/">Event Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    </h5>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <h5>
+        <li class="nav-item active" style="font-size: 20px;transform: translateY(5px);">
+          <a class="nav-link" href="/std/home/"> Home <span class="sr-only">(current)</span></a>
+        </li>
+      </h5>
+      <h6>
+        <li class="nav-item" style="font-size: 18px;transform: translateX(15px);">
+          <a class="nav-link" href="/std/add-evt/">Add an Event</a>
+        </li>
+      </h6>
+        <li style="margin-left: 700px;">
+        <form class="d-flex" action="{% url 'search_events' %}" method="POST">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search Event" aria-label="Search" name="searched">
+          <button class="btn btn-dark" type="submit">Search</button>
+        </form> 
+      </li>
+        <li style="transform:translateX(10px);font-size:0px;">
+          <button class="btn-danger"><a class="navbar-brand" href="{% url 'user-logout' %}">Logout</a></button>
+        </li>
+    </div>
+  </nav>
+
+  <style>
+  h5 {
+    --s: 0.1em;   /* the thickness of the line */
+    --c: #2c4bff; /* the color */
+    
+    color: #0000;
+    padding-bottom: var(--s);
+    background: 
+      linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+      linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+    -webkit-background-clip: text,padding-box;
+            background-clip: text,padding-box;
+    transition: 0.5s;
+  }
+  h5:hover {--_p: 100%}
+  h5 {
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  h6 {
+    display: flex;
+  cursor: pointer;
+  margin: auto;
+  font-size: 5vmin;
+  font-weight: 500;
+  transition: font-weight 250ms ease-in-out;
+}
+
+h6:hover {
+  font-weight: 900;
+}
+</style>
